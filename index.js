@@ -214,11 +214,13 @@ Aşağıdakileri yapmak için ortalamaKelimeSayisi işlevini kullanın:
 function ortalamaKelimeSayisi(dizi){
   let kelimeSayilariToplami = 0;
   for (let i = 0; i < dizi.length; i++) {
-  if (dizi[i].includes(" ")){
+/*   if (dizi[i].includes(" ")){
   kelimeSayilariToplami += 2;
   } else {
   kelimeSayilariToplami += 1;
-  }
+  } */
+
+  kelimeSayilariToplami += dizi[i].split(" ").length;
  }
   
   return kelimeSayilariToplami / dizi.length;
@@ -239,6 +241,42 @@ Aşağıdakileri yapmak için rastgeleTatlar işlevini ve yeni dizileri kullanı
   Örneğin: rastgeleTatlar(orijinalTatlar, yeniTatlar, mevsimlikTatlar, bolgeselTatlar) çalıştırıldığında ["Kestane", "Ballı Badem,"..."Hindistan Cevizi", "Kuru üzüm"].
 */
 
+const yeniTatlar = [
+  "Badem",
+  "Ballı Badem",
+  "Fıstık Ezmesi",
+  "Profiterol",
+  "Madlen Çikolata"
+]
+
+const mevsimlikTatlar = [
+"Pekan",
+"Kaju",
+"Çikolatalı Mousse",
+"Fransız Vanilyası",
+"Yumurta",
+"Alman çikolatası",
+"Kek üzerine krema",
+"Hindistan Cevizi",
+"Kaymaklı Biskuvi",
+"Beyaz Çikolata",
+"Mango"
+]
+
+const bolgeselTatlar = [
+"Kaymak",
+"Karpuz",
+"Karadut",
+"Turunç",
+"Portakal",
+"Yogurt",
+"Krem Peynir",
+"Kakao",
+"Karamel macchiato",
+"Kuru üzüm",
+"Peynir",
+"Karamel"
+] 
 
 function rastgeleTatlar(orijinalTatlar, yeniTatlar, mevsimlikTatlar, bolgeselTatlar) {
   let rastgeleTatlar = [];
@@ -257,7 +295,7 @@ function rastgeleTatlar(orijinalTatlar, yeniTatlar, mevsimlikTatlar, bolgeselTat
    }
   return rastgeleTatlar;
   }
-
+  console.log(rastgeleTatlar(orijinalTatlar, yeniTatlar, mevsimlikTatlar, bolgeselTatlar))
 
 // NEW DATA ARRAYS FOR STRETCH 2 ⬇️
 // const yeniTatlar = [
