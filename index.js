@@ -278,24 +278,37 @@ const bolgeselTatlar = [
 "Karamel"
 ] 
 
-function rastgeleTatlar(orijinalTatlar, yeniTatlar, mevsimlikTatlar, bolgeselTatlar) {
-  let rastgeleTatlar = [];
-  for (let i = 0; i < 25; i++) {
-  let rastgeleDeger = Math.floor(Math.random() * 4);
-  if (rastgeleDeger === 0) 
-  {
-  rastgeleTatlar.push(orijinalTatlar[Math.floor(Math.random() * orijinalTatlar.length)]);
-} else if (rastgeleDeger === 1) {
-  rastgeleTatlar.push(yeniTatlar[Math.floor(Math.random() * yeniTatlar.length)]);
-} else if (rastgeleDeger === 2) {
-  rastgeleTatlar.push(mevsimlikTatlar[Math.floor(Math.random() * mevsimlikTatlar.length)]);
-} else {
-  rastgeleTatlar.push(bolgeselTatlar[Math.floor(Math.random() * bolgeselTatlar.length)]);
-}
-   }
-  return rastgeleTatlar;
-  }
-  console.log(rastgeleTatlar(orijinalTatlar, yeniTatlar, mevsimlikTatlar, bolgeselTatlar))
+// function rastgeleTatlar(orijinalTatlar, yeniTatlar, mevsimlikTatlar, bolgeselTatlar) {
+//   let rastgeleTatlar = [];
+//   for (let i = 0; i < 25; i++) {
+//   let rastgeleDeger = Math.floor(Math.random() * 4);
+//   if (rastgeleDeger === 0) 
+//   {
+//   rastgeleTatlar.push(orijinalTatlar[Math.floor(Math.random() * orijinalTatlar.length)]);
+// } else if (rastgeleDeger === 1) {
+//   rastgeleTatlar.push(yeniTatlar[Math.floor(Math.random() * yeniTatlar.length)]);
+// } else if (rastgeleDeger === 2) {
+//   rastgeleTatlar.push(mevsimlikTatlar[Math.floor(Math.random() * mevsimlikTatlar.length)]);
+// } else {
+//   rastgeleTatlar.push(bolgeselTatlar[Math.floor(Math.random() * bolgeselTatlar.length)]);
+// }
+//    }
+//   return rastgeleTatlar;
+//   }
+
+  function rastgeleTatlar(orijinalTatlar, yeniTatlar, mevsimlikTatlar, bolgeselTatlar) {
+    let tumTatlar = orijinalTatlar.concat(yeniTatlar).concat(mevsimlikTatlar).concat(bolgeselTatlar);
+    let rastgeleTatlar = [];
+    for (let i = 0; i < 25; i++) {
+    let rastgeleDeger = Math.floor(Math.random() * tumTatlar.length);
+    rastgeleTatlar.push(tumTatlar[rastgeleDeger]);
+    tumTatlar.splice(rastgeleDeger, 1);
+    }
+    return rastgeleTatlar;
+    }
+    console.log(rastgeleTatlar(orijinalTatlar, yeniTatlar, mevsimlikTatlar, bolgeselTatlar))
+
+  
 
 // NEW DATA ARRAYS FOR STRETCH 2 ⬇️
 // const yeniTatlar = [
